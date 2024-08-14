@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc4mcase24-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bc4mcase24
+  template:
+    metadata:
+      labels:
+        app: bc4mcase24
+    spec:
+      containers:
+      - name: bc4mcase24
+        image: veliemrecetin/bc4mcase24
+        imagePullPolicy: Never 
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
