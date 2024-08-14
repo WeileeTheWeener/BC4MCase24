@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BC4MCase24.props" />
+</Project>
